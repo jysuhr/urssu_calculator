@@ -61,6 +61,26 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func mul_action(_ sender: UIButton) {
+        let num1: Int? = Int(firstNum_textField.text!)
+        let num2: Int? = Int(secondNum_textField.text!)
+        var result: Int
+        result = num1! * num2!
+        info_lable.text = firstNum_textField.text! + " X " + secondNum_textField.text! + " = " + "\(result)"
+    }
+    
+    
+    @IBAction func div_action(_ sender: UIButton) {
+        let num1: Int? = Int(firstNum_textField.text!)
+        let num2: Int? = Int(secondNum_textField.text!)
+        var result: Int
+        result = num1! / num2!
+        info_lable.text = firstNum_textField.text! + " / " + secondNum_textField.text! + " = " + "\(result)"
+    }
+    
+    
+    
+    
     
     
 }

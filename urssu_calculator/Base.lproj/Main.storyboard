@@ -52,11 +52,17 @@
                                 <rect key="frame" x="46" y="490" width="300" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="나누기"/>
+                                <connections>
+                                    <action selector="div_action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aQs-yr-tG3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gmk-fw-pjs">
                                 <rect key="frame" x="46" y="445" width="300" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="곱하기"/>
+                                <connections>
+                                    <action selector="mul_action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vLL-KY-CeN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
