@@ -47,9 +47,16 @@ class ViewController: UIViewController {
     @IBAction func add_action(_ sender: UIButton) {
         let num1: Int? = Int(firstNum_textField.text!)
         let num2: Int? = Int(secondNum_textField.text!)
-        var result: Int
-        result = num1! + num2!
-        info_lable.text = firstNum_textField.text! + " + " + secondNum_textField.text! + " = " + "\(result)"
+        var result: Int = 0
+        if let reNum1 = num1, let reNum2 = num2 {
+            result = reNum1 + reNum2
+            info_lable.text = firstNum_textField.text! + " + " + secondNum_textField.text! + " = " + "\(result)"
+        }
+        else {
+            print("숫자를 모두 입력하세요.")
+            info_lable.text = "숫자를 모두 입력해주세요"
+        }
+        
     }
     
     @IBAction func sub_action(_ sender: UIButton) {
@@ -77,11 +84,6 @@ class ViewController: UIViewController {
         result = num1! / num2!
         info_lable.text = firstNum_textField.text! + " / " + secondNum_textField.text! + " = " + "\(result)"
     }
-    
-    
-    
-    
-    
-    
+    // 강제추출 옵셔널이라서 nil값이 들어오면 문제가 생김 -> guard-let or if-let 고려하기
 }
 
