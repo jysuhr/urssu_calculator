@@ -31,14 +31,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var divide_button: UIButton!
     
     
-    @IBOutlet weak var ok_button: UIButton!
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         info_lable.text = "버튼을 눌러주세요!"
-        //firstNum_textField.text = "첫번째 숫자를 입력해주세요" // 클릭하면 없어지는 글자여야돼는데...
         
     }
     

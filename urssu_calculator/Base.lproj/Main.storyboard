@@ -16,13 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXb-9m-0cn">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="첫번째 숫자를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXb-9m-0cn">
                                 <rect key="frame" x="47" y="216" width="300" height="34"/>
+                                <color key="backgroundColor" red="0.96470588450000005" green="0.96470588450000005" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uD5-ZZ-U11">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="두번째 숫자를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uD5-ZZ-U11">
                                 <rect key="frame" x="47" y="260" width="300" height="34"/>
+                                <color key="backgroundColor" red="0.96470588450000005" green="0.96470588450000005" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
@@ -35,7 +37,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oWz-Cr-WcB">
                                 <rect key="frame" x="46" y="355" width="300" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="더하기"/>
+                                <buttonConfiguration key="configuration" style="filled" title="더하기" cornerStyle="capsule">
+                                    <color key="baseBackgroundColor" red="0.31764706970000001" green="0.62352943419999995" blue="0.72156864399999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="add_action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W0y-zA-i6u"/>
                                 </connections>
@@ -43,7 +47,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NdW-Oq-aYS">
                                 <rect key="frame" x="46" y="400" width="300" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="빼기"/>
+                                <buttonConfiguration key="configuration" style="filled" title="빼기" cornerStyle="capsule">
+                                    <color key="baseBackgroundColor" red="0.31764706970000001" green="0.62352943419999995" blue="0.72156864399999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="sub_action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lEa-0g-Fbd"/>
                                 </connections>
@@ -51,7 +57,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HUq-UD-3z5">
                                 <rect key="frame" x="46" y="490" width="300" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="나누기"/>
+                                <buttonConfiguration key="configuration" style="filled" title="나누기" cornerStyle="capsule">
+                                    <color key="baseBackgroundColor" red="0.31764706970000001" green="0.62352943419999995" blue="0.72156864399999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="div_action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aQs-yr-tG3"/>
                                 </connections>
@@ -59,7 +67,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gmk-fw-pjs">
                                 <rect key="frame" x="46" y="445" width="300" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="곱하기"/>
+                                <buttonConfiguration key="configuration" style="filled" title="곱하기" cornerStyle="capsule">
+                                    <color key="baseBackgroundColor" red="0.31764706970000001" green="0.62352943419999995" blue="0.72156864399999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="mul_action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vLL-KY-CeN"/>
                                 </connections>
