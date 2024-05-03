@@ -120,8 +120,14 @@ class ViewController: UIViewController {
         
         if let reNum1 = num1 { // 첫째 값은 있을 때
             if let reNum2 = num2 { // 둘째 값도 있을 때
-                result = reNum1 / reNum2
-                info_lable.text = firstNum_textField.text! + " / " + secondNum_textField.text! + " = " + "\(result)"
+                if reNum2 == 0 {
+                    info_lable.text = "0으로 나눌 수 없습니다."
+                }
+                else {
+                    result = reNum1 / reNum2
+                    info_lable.text = firstNum_textField.text! + " / " + secondNum_textField.text! + " = " + "\(result)"
+                }
+                
             }
             else {
                 info_lable.text = "숫자를 모두 입력해주세요"
