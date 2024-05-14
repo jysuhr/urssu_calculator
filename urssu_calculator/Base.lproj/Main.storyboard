@@ -41,7 +41,7 @@
                                     <color key="baseBackgroundColor" red="0.31764706970000001" green="0.62352943419999995" blue="0.72156864399999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="add_action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W0y-zA-i6u"/>
+                                    <action selector="addAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wWc-IQ-ju0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NdW-Oq-aYS">
@@ -51,7 +51,7 @@
                                     <color key="baseBackgroundColor" red="0.31764706970000001" green="0.62352943419999995" blue="0.72156864399999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="sub_action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lEa-0g-Fbd"/>
+                                    <action selector="subAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jAv-Id-xRj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HUq-UD-3z5">
@@ -61,7 +61,7 @@
                                     <color key="baseBackgroundColor" red="0.31764706970000001" green="0.62352943419999995" blue="0.72156864399999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="div_action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aQs-yr-tG3"/>
+                                    <action selector="divAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S5H-Vv-web"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gmk-fw-pjs">
@@ -71,7 +71,7 @@
                                     <color key="baseBackgroundColor" red="0.31764706970000001" green="0.62352943419999995" blue="0.72156864399999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="mul_action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vLL-KY-CeN"/>
+                                    <action selector="mulAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uyv-EF-Qvd"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -102,13 +102,13 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="add_button" destination="oWz-Cr-WcB" id="oEe-VT-CUp"/>
-                        <outlet property="divide_button" destination="HUq-UD-3z5" id="gdO-BH-u5u"/>
-                        <outlet property="firstNum_textField" destination="NXb-9m-0cn" id="vq8-tN-tBs"/>
-                        <outlet property="info_lable" destination="B6h-FA-Zmr" id="gXe-XW-070"/>
-                        <outlet property="multiply_button" destination="Gmk-fw-pjs" id="8o4-87-1SS"/>
-                        <outlet property="secondNum_textField" destination="uD5-ZZ-U11" id="IlU-s9-Cwk"/>
-                        <outlet property="subtract_button" destination="NdW-Oq-aYS" id="Nib-wv-N0W"/>
+                        <outlet property="addButton" destination="oWz-Cr-WcB" id="G8q-zX-mV6"/>
+                        <outlet property="divideButton" destination="HUq-UD-3z5" id="pAj-wJ-lzE"/>
+                        <outlet property="firstNumTextField" destination="NXb-9m-0cn" id="V0S-Hl-ffa"/>
+                        <outlet property="infoLabel" destination="B6h-FA-Zmr" id="be0-Ss-DC7"/>
+                        <outlet property="multiplyButton" destination="Gmk-fw-pjs" id="FWm-Dj-ymI"/>
+                        <outlet property="secondNumTextField" destination="uD5-ZZ-U11" id="hGo-kv-MhH"/>
+                        <outlet property="subtractButton" destination="NdW-Oq-aYS" id="u0M-8x-cu9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
