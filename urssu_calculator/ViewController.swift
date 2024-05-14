@@ -37,103 +37,132 @@ class ViewController: UIViewController {
     
     // 여기부터 액션 연결
     
+    // 텍스트 필드 옵셔널 바인딩
+    func validateAndGetInt(from textField: UITextField) -> Int? {
+        guard let text = textField.text, let number = Int(text) else {
+            return nil
+        }
+        return number
+    }
+    // 결과를 업데이트하는 공통 함수
+    func updateResultLabel(_ result: String) {
+        infoLabel.text = result
+    }
+    
+    enum CalculatorError: Error {
+        case divideWithZero
+    }
+    
+    
     @IBAction func addAction(_ sender: UIButton) {
-        let num1: Int? = Int(firstNumTextField.text!)
-        let num2: Int? = Int(secondNumTextField.text!)
-        var result: Int = 0
-        
-        if let reNum1 = num1 { // 첫째 값은 있을 때
-            if let reNum2 = num2 { // 둘째 값도 있을 때
-                result = reNum1 + reNum2
-                infoLabel.text = firstNumTextField.text! + " + " + secondNumTextField.text! + " = " + "\(result)"
+        guard let num1 = validateAndGetInt(from: firstNumTextField) else {
+            // 1값이 없을 때
+            guard let num2 = validateAndGetInt(from: secondNumTextField) else {
+                // 2값이 없을 때
+                updateResultLabel("값을 먼저 입력해주세요")
+                return
             }
-            else {
-                infoLabel.text = "숫자를 모두 입력해주세요"
-            }
+            // 2값이 있을 때
+            updateResultLabel("숫자를 모두 입력해주세요")
+            return
         }
-        else if let reNum2 = num2 {
-            infoLabel.text = "숫자를 모두 입력해주세요"
+        // 1값이 있을 때
+        guard let num2 = validateAndGetInt(from: secondNumTextField) else {
+            // 2값이 없을 때
+            updateResultLabel("숫자를 모두 입력해주세요")
+            return
         }
-        else {
-            infoLabel.text = "값을 먼저 입력해주세요"
-        }
+        // 2값이 있을 때
+        let result = num1 + num2
+        updateResultLabel("\(num1) + \(num2) = \(result)")
     }
     
     
     
     @IBAction func subAction(_ sender: UIButton) {
-        let num1: Int? = Int(firstNumTextField.text!)
-        let num2: Int? = Int(secondNumTextField.text!)
-        var result: Int = 0
-        
-        if let reNum1 = num1 { // 첫째 값은 있을 때
-            if let reNum2 = num2 { // 둘째 값도 있을 때
-                result = reNum1 - reNum2
-                infoLabel.text = firstNumTextField.text! + " - " + secondNumTextField.text! + " = " + "\(result)"
+        guard let num1 = validateAndGetInt(from: firstNumTextField) else {
+            // 1값이 없을 때
+            guard let num2 = validateAndGetInt(from: secondNumTextField) else {
+                // 2값이 없을 때
+                updateResultLabel("값을 먼저 입력해주세요")
+                return
             }
-            else {
-                infoLabel.text = "숫자를 모두 입력해주세요"
-            }
+            // 2값이 있을 때
+            updateResultLabel("숫자를 모두 입력해주세요")
+            return
         }
-        else if let reNum2 = num2 {
-            infoLabel.text = "숫자를 모두 입력해주세요"
+        // 1값이 있을 때
+        guard let num2 = validateAndGetInt(from: secondNumTextField) else {
+            // 2값이 없을 때
+            updateResultLabel("숫자를 모두 입력해주세요")
+            return
         }
-        else {
-            infoLabel.text = "값을 먼저 입력해주세요"
-        }
+        // 2값이 있을 때
+        let result = num1 - num2
+        updateResultLabel("\(num1) - \(num2) = \(result)")
     }
     
     
     @IBAction func mulAction(_ sender: UIButton) {
-        let num1: Int? = Int(firstNumTextField.text!)
-        let num2: Int? = Int(secondNumTextField.text!)
-        var result: Int = 0
-        
-        if let reNum1 = num1 { // 첫째 값은 있을 때
-            if let reNum2 = num2 { // 둘째 값도 있을 때
-                result = reNum1 * reNum2
-                infoLabel.text = firstNumTextField.text! + " X " + secondNumTextField.text! + " = " + "\(result)"
+        guard let num1 = validateAndGetInt(from: firstNumTextField) else {
+            // 1값이 없을 때
+            guard let num2 = validateAndGetInt(from: secondNumTextField) else {
+                // 2값이 없을 때
+                updateResultLabel("값을 먼저 입력해주세요")
+                return
             }
-            else {
-                infoLabel.text = "숫자를 모두 입력해주세요"
-            }
+            // 2값이 있을 때
+            updateResultLabel("숫자를 모두 입력해주세요")
+            return
         }
-        else if let reNum2 = num2 {
-            infoLabel.text = "숫자를 모두 입력해주세요"
+        // 1값이 있을 때
+        guard let num2 = validateAndGetInt(from: secondNumTextField) else {
+            // 2값이 없을 때
+            updateResultLabel("숫자를 모두 입력해주세요")
+            return
         }
-        else {
-            infoLabel.text = "값을 먼저 입력해주세요"
-        }
+        // 2값이 있을 때
+        let result = num1 * num2
+        updateResultLabel("\(num1) * \(num2) = \(result)")
     }
     
     
     @IBAction func divAction(_ sender: UIButton) {
-        let num1: Int? = Int(firstNumTextField.text!)
-        let num2: Int? = Int(secondNumTextField.text!)
-        var result: Int = 0
+        func divide() throws {
+            guard let num1 = validateAndGetInt(from: firstNumTextField) else {
+                // 1값이 없을 때
+                guard let num2 = validateAndGetInt(from: secondNumTextField) else {
+                    // 2값이 없을 때
+                    updateResultLabel("값을 먼저 입력해주세요")
+                    return
+                }
+                // 2값이 있을 때
+                updateResultLabel("숫자를 모두 입력해주세요")
+                return
+            }
+            // 1값이 있을 때
+            guard let num2 = validateAndGetInt(from: secondNumTextField) else {
+                // 2값이 없을 때
+                updateResultLabel("숫자를 모두 입력해주세요")
+                return
+            }
+            // 2값이 있을 때
+            guard num2 != 0 else {
+                // num2가 0일때
+                throw CalculatorError.divideWithZero
+            }
+            let result = num1 / num2
+            updateResultLabel("\(num1) / \(num2) = \(result)")
+        }
         
-        if let reNum1 = num1 { // 첫째 값은 있을 때
-            if let reNum2 = num2 { // 둘째 값도 있을 때
-                if reNum2 == 0 {
-                    infoLabel.text = "0으로 나눌 수 없습니다."
-                }
-                else {
-                    result = reNum1 / reNum2
-                    infoLabel.text = firstNumTextField.text! + " / " + secondNumTextField.text! + " = " + "\(result)"
-                }
-                
-            }
-            else {
-                infoLabel.text = "숫자를 모두 입력해주세요"
-            }
+        do {
+            try divide()
+        } catch CalculatorError.divideWithZero {
+            infoLabel.text = "0으로는 나눌 수 없습니다."
+        } catch {
+            
         }
-        else if let reNum2 = num2 {
-            infoLabel.text = "숫자를 모두 입력해주세요"
-        }
-        else {
-            infoLabel.text = "값을 먼저 입력해주세요"
-        }
+
     }
-    // 강제추출 옵셔널이라서 nil값이 들어오면 문제가 생김 -> guard-let or if-let 고려하기
 }
 
