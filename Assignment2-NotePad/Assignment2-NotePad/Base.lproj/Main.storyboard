@@ -1,24 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z42-Da-7a1">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="ZBb-ap-eTD">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <navigationController id="Z42-Da-7a1" customClass="ViewController" customModule="Assignment2_NotePad" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7tg-1Z-3LF">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Q1S-GM-iwb" kind="relationship" relationship="rootViewController" id="h0W-M5-zyZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rf6-sT-ZFi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-1984" y="-425"/>
+        </scene>
+        <!--메모 목록-->
+        <scene sceneID="pzE-1A-1lu">
+            <objects>
+                <viewController id="Q1S-GM-iwb" customClass="MemoList" customModule="Assignment2_NotePad" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZQm-hQ-fwg">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vbp-4Y-Sgl">
+                                <rect key="frame" x="176" y="426" width="41.333333333333343" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1UM-lP-mCP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Vbp-4Y-Sgl" firstAttribute="top" secondItem="ZQm-hQ-fwg" secondAttribute="top" constant="426" id="aWP-PJ-exY"/>
+                            <constraint firstItem="Vbp-4Y-Sgl" firstAttribute="centerX" secondItem="ZQm-hQ-fwg" secondAttribute="centerX" id="qKR-DY-nM6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="메모 목록" id="0SQ-VX-hcp">
+                        <barButtonItem key="rightBarButtonItem" title="addMemo" image="plus" catalog="system" id="G5l-oh-qhY">
+                            <connections>
+                                <segue destination="sll-zR-Ss6" kind="show" id="7mU-In-Qf4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="noMemoLabel" destination="Vbp-4Y-Sgl" id="hBc-xY-Kxt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YJm-lN-Wsb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1170.2290076335878" y="-425.35211267605638"/>
+        </scene>
+        <!--메모 작성-->
+        <scene sceneID="hjC-7h-5Lq">
+            <objects>
+                <viewController id="sll-zR-Ss6" customClass="AddMemo" customModule="Assignment2_NotePad" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0sA-80-fVH">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="제목을 작성해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lzs-SR-ULS">
+                                <rect key="frame" x="26" y="123" width="340" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="메모의 내용" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="C74-ZX-pPo">
+                                <rect key="frame" x="26" y="177" width="340" height="639"/>
+                                <color key="backgroundColor" red="0.9529411793" green="0.9529411793" blue="0.9529411793" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="340" id="07U-S8-bzJ"/>
+                                    <constraint firstAttribute="height" constant="639" id="PQ4-G4-HSd"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="VBB-dj-VxD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="VBB-dj-VxD" firstAttribute="trailing" secondItem="Lzs-SR-ULS" secondAttribute="trailing" constant="27" id="DHg-Su-LSf"/>
+                            <constraint firstItem="C74-ZX-pPo" firstAttribute="leading" secondItem="VBB-dj-VxD" secondAttribute="leading" constant="26" id="E04-ZF-LOf"/>
+                            <constraint firstItem="Lzs-SR-ULS" firstAttribute="leading" secondItem="VBB-dj-VxD" secondAttribute="leading" constant="26" id="hWg-TA-Ste"/>
+                            <constraint firstItem="VBB-dj-VxD" firstAttribute="trailing" secondItem="C74-ZX-pPo" secondAttribute="trailing" constant="27" id="kZj-1Y-U6Z"/>
+                            <constraint firstItem="C74-ZX-pPo" firstAttribute="top" secondItem="Lzs-SR-ULS" secondAttribute="bottom" constant="20" id="nVR-Bl-eXp"/>
+                            <constraint firstItem="Lzs-SR-ULS" firstAttribute="top" secondItem="0sA-80-fVH" secondAttribute="top" constant="123" id="vcB-Ws-hDm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="메모 작성" id="XwP-5W-h2Y">
+                        <barButtonItem key="rightBarButtonItem" title="등록" id="PvD-z6-IBn"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="contentsTextView" destination="C74-ZX-pPo" id="tY9-Zn-28N"/>
+                        <outlet property="registerButton" destination="PvD-z6-IBn" id="xGH-sQ-iA8"/>
+                        <outlet property="titleTextField" destination="Lzs-SR-ULS" id="Qz8-HZ-zP2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0B8-DN-ae8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-363" y="-425"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
