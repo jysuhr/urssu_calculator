@@ -25,7 +25,6 @@ class MemoList: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         noMemoLabel.text = "메모가 없습니다.\n메모를 추가해주세요!"
-        // Do any additional setup after loading the view.
     }
 
 
@@ -41,7 +40,7 @@ class AddMemo: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        contentsTextView.text = "메모의 내용은 이곳에 들어감"
         contentsTextView.delegate = self
     }
 
