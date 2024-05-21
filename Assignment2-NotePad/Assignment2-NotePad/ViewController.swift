@@ -40,9 +40,26 @@ class AddMemo: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        contentsTextView.text = "메모의 내용은 이곳에 들어감"
+        
         contentsTextView.delegate = self
+        contentsTextView.text = "내용을 작성해주세요" // 텍스트뷰를 건드리지 않았을 때
+        contentsTextView.textColor = UIColor.lightGray
     }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if contentsTextView.text.isEmpty {
+            contentsTextView.text = "내용을 작성해주세요" // 텍스트뷰에서 커서를 뗄 때
+            contentsTextView.textColor = UIColor.lightGray
+        }
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if contentsTextView.textColor == UIColor.lightGray {
+            contentsTextView.text = nil
+            contentsTextView.textColor = UIColor.black
+        }
+    }
+    
 
 
 }
