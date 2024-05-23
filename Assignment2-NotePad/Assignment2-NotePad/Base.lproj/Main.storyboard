@@ -63,7 +63,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="memoTable" destination="nYW-gl-M8D" id="fn3-kY-a4V"/>
-                        <outlet property="noMemoLabel" destination="Vbt-xP-pkI" id="9mS-ie-MTO"/>
+                        <outlet property="noMemoLabel" destination="Vbt-xP-pkI" id="ftk-px-JQe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YJm-lN-Wsb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

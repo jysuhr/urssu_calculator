@@ -69,19 +69,33 @@ class AddMemo: UIViewController, UITextViewDelegate {
 class MemoList: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var noMemoLabel: UILabel!
-    
     @IBOutlet weak var memoTable: UITableView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         noMemoLabel.text = "메모가 없습니다.\n메모를 추가해주세요!"
         memoTable.dataSource = self
         memoTable.delegate = self
+        updateMemoList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         memoTable.reloadData() // 화면이 나타날 때마다 갱신
+        updateMemoList()
+    }
+    
+    func updateMemoList() {
+        memoTable.reloadData() // 테이블 뷰를 다시 로드하여 메모 리스트를 업데이트합니다.
+        
+        // 딕셔너리가 비어 있는지 확인하여 라벨 표시 여부 결정
+        if memoDic.isEmpty {
+            noMemoLabel.isHidden = false // 메모가 없는 경우 라벨을 보이도록 설정합니다.
+            memoTable.isHidden = true
+        } else {
+            noMemoLabel.isHidden = true // 메모가 있는 경우 라벨을 숨깁니다.
+            memoTable.isHidden = false
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -90,7 +104,7 @@ class MemoList: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell.init(style: .subtitle, reuseIdentifier: "myCell")
-        var key = Array(memoDic.keys)[indexPath.row]
+        let key = Array(memoDic.keys)[indexPath.row]
         cell.textLabel?.text = key // 제목
         cell.detailTextLabel?.text = memoDic[key] // 내용
         return cell
