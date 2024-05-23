@@ -32,18 +32,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="메모 없을때 나오는 라벨" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vbp-4Y-Sgl">
-                                <rect key="frame" x="116.33333333333333" y="426" width="160.33333333333337" height="20.333333333333314"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="메모가 없을때 나오는 라벨" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vbt-xP-pkI">
+                                <rect key="frame" x="109" y="426" width="175" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nYW-gl-M8D">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1UM-lP-mCP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Vbp-4Y-Sgl" firstAttribute="top" secondItem="ZQm-hQ-fwg" secondAttribute="top" constant="426" id="aWP-PJ-exY"/>
-                            <constraint firstItem="Vbp-4Y-Sgl" firstAttribute="centerX" secondItem="ZQm-hQ-fwg" secondAttribute="centerX" id="qKR-DY-nM6"/>
+                            <constraint firstItem="Vbt-xP-pkI" firstAttribute="top" secondItem="ZQm-hQ-fwg" secondAttribute="top" constant="426" id="4DF-cN-9xw"/>
+                            <constraint firstItem="nYW-gl-M8D" firstAttribute="leading" secondItem="1UM-lP-mCP" secondAttribute="leading" id="85d-bX-a22"/>
+                            <constraint firstItem="nYW-gl-M8D" firstAttribute="top" secondItem="1UM-lP-mCP" secondAttribute="top" id="Lf4-qH-cbI"/>
+                            <constraint firstItem="1UM-lP-mCP" firstAttribute="trailing" secondItem="nYW-gl-M8D" secondAttribute="trailing" id="SjZ-41-4Nv"/>
+                            <constraint firstItem="Vbt-xP-pkI" firstAttribute="centerX" secondItem="ZQm-hQ-fwg" secondAttribute="centerX" id="Ufw-j7-rA9"/>
+                            <constraint firstItem="1UM-lP-mCP" firstAttribute="bottom" secondItem="nYW-gl-M8D" secondAttribute="bottom" id="jjE-Mg-I74"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="메모 목록" id="0SQ-VX-hcp">
@@ -54,7 +62,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="noMemoLabel" destination="Vbp-4Y-Sgl" id="hBc-xY-Kxt"/>
+                        <outlet property="memoTable" destination="nYW-gl-M8D" id="fn3-kY-a4V"/>
+                        <outlet property="noMemoLabel" destination="Vbt-xP-pkI" id="9mS-ie-MTO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YJm-lN-Wsb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -98,7 +107,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="메모 작성" id="XwP-5W-h2Y">
-                        <barButtonItem key="rightBarButtonItem" title="등록" id="PvD-z6-IBn"/>
+                        <barButtonItem key="rightBarButtonItem" title="등록" id="PvD-z6-IBn">
+                            <connections>
+                                <action selector="registAction:" destination="sll-zR-Ss6" id="pPO-8I-wXS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="contentsTextView" destination="C74-ZX-pPo" id="tY9-Zn-28N"/>

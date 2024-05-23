@@ -11,24 +11,13 @@ class ViewController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
 
 
 }
 
-class MemoList: UIViewController {
-    
-    
-    @IBOutlet weak var noMemoLabel: UILabel!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        noMemoLabel.text = "메모가 없습니다.\n메모를 추가해주세요!"
-    }
-
-
-}
+var memoDic: Dictionary<String?, String> = [String?: String]()
 
 class AddMemo: UIViewController, UITextViewDelegate {
 
@@ -60,6 +49,52 @@ class AddMemo: UIViewController, UITextViewDelegate {
         }
     }
     
+    // 내용 테스트용 함수 (나중에 삭제)
+    func preView() {
+        print(contentsTextView.text!)
+    }
+    
+    
+    @IBAction func registAction(_ sender: Any) {
+        
+        preView() // 나중에 삭제
+        
+        memoDic[titleTextField.text] = contentsTextView.text
+        
+        print(memoDic)
+        navigationController?.popViewController(animated: true)
+    }
+}
+
+class MemoList: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var noMemoLabel: UILabel!
+    
+    @IBOutlet weak var memoTable: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        noMemoLabel.text = "메모가 없습니다.\n메모를 추가해주세요!"
+        memoTable.dataSource = self
+        memoTable.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        memoTable.reloadData() // 화면이 나타날 때마다 갱신
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return memoDic.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell.init(style: .subtitle, reuseIdentifier: "myCell")
+        var key = Array(memoDic.keys)[indexPath.row]
+        cell.textLabel?.text = key // 제목
+        cell.detailTextLabel?.text = memoDic[key] // 내용
+        return cell
+    }
 
 
 }
