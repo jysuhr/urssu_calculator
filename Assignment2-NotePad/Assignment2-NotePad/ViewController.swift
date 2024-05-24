@@ -11,13 +11,13 @@ class ViewController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
-
-
 }
 
 var memoDic: Dictionary<String?, String> = [String?: String]()
+var numDic: Dictionary<Int, String?> = [Int: String?]()
+var key: [String?] = []
+var knum: Int = 0
 
 class AddMemo: UIViewController, UITextViewDelegate {
     @IBOutlet weak var registerButton: UIBarButtonItem!
@@ -58,11 +58,16 @@ class AddMemo: UIViewController, UITextViewDelegate {
         preView() // 나중에 삭제
         
         memoDic[titleTextField.text] = contentsTextView.text
+        numDic[knum] = titleTextField.text
+        print("numDic: \(numDic)")
+        knum += 1
         
-        print(memoDic)
+        print("memoDic: \(memoDic)")
         navigationController?.popViewController(animated: true)
     }
 }
+
+var rowNum: Int = 0
 
 class MemoList: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -102,9 +107,9 @@ class MemoList: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell.init(style: .subtitle, reuseIdentifier: "myCell")
-        let key = Array(memoDic.keys)[indexPath.row]
-        cell.textLabel?.text = key // 제목
-        cell.detailTextLabel?.text = memoDic[key] // 내용
+        let key = Array(memoDic.keys)[indexPath.row] // 변환x
+        cell.textLabel?.text = numDic[(numDic.count - 1) - indexPath.row]!! // 제목 원래는 key
+        cell.detailTextLabel?.text = memoDic["\(numDic[(numDic.count - 1) - indexPath.row]!!)"] // 내용
         return cell
     }
     
@@ -112,13 +117,14 @@ class MemoList: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 선택된 셀의 정보를 출력합니다. (추후 삭제)
         print("로우: \(indexPath.row)")
+        rowNum = indexPath.row
         
         // 모달로 MemoView를 띄우기
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let secondVC = storyboard.instantiateViewController(withIdentifier: "MemoViewID") as? MemoView {
+        if let memoVC = storyboard.instantiateViewController(withIdentifier: "MemoViewID") as? MemoView {
             // 모달 프레젠테이션으로 두 번째 ViewController를 표시
-            secondVC.modalPresentationStyle = .fullScreen
-            self.present(secondVC, animated: true, completion: nil)
+            memoVC.modalPresentationStyle = .fullScreen
+            self.present(memoVC, animated: true, completion: nil)
         }
     }
 }
@@ -133,8 +139,12 @@ class MemoView: UIViewController {
         super.viewDidLoad()
         let key = Array(memoDic.keys)
         guard let title = key.first else { return }
-        titleLabel.text = title
-        memoTextView.text = memoDic[title]
+        
+        // 확인용
+        print("rowNum: \(rowNum)")
+        
+        titleLabel.text = "\(numDic[(numDic.count - 1) - rowNum]!!)"
+        memoTextView.text = memoDic["\(numDic[(numDic.count - 1) - rowNum]!!)"]
     }
     
     @IBAction func backAction(_ sender: Any) {
