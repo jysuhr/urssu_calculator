@@ -12,5 +12,5 @@ protocol MemoDataDelegate: AnyObject {
 }
 
 protocol RowValue: AnyObject {
-    func didRecieveData(/*data: Int, */titleForMemoView: String?, contentsForMemoView: String)
+    func didRecieveData(titleForMemoView: String?, contentsForMemoView: String)
 }

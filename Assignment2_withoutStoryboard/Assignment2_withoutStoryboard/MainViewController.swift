@@ -10,7 +10,7 @@ import UIKit
 class MainViewController: UIViewController, MemoDataDelegate, UITableViewDelegate, UITableViewDataSource {
     
     var memoDic: [String?: String] = [:]
-    var numDic: [Int: String?] = [:] // 삭제
+    var numDic: [Int: String?] = [:]
     var knum: Int = 0
     var memoTable = UITableView()
     let noMemoLabel = UILabel()
@@ -114,10 +114,8 @@ class MainViewController: UIViewController, MemoDataDelegate, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
         
-//        let key = Array(memoDic.keys)[indexPath.row]
         let key = memoOrder[memoOrder.count - (indexPath.row + 1)]
         
-//        let value = memoDic[key]
         if let value = memoDic[key] {
             cell.textLabel?.text = key
             cell.detailTextLabel?.text = value

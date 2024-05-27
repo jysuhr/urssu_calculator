@@ -11,19 +11,14 @@ class MemoView: UIViewController, RowValue {
     
     let titleLabel = UILabel()
     let memoTextView = UITextView()
-//    var row: Int = 0
     var titleForMemoView: String? = "tit"
     var contentsForMemoView: String = "con"
-//    var numRow: Int = 5 // 로우 넘버를 저장하는 변수 < 필요 없을 듯
-//    var memoDic: [String?: String] = [:] // 삭제
-//    var numDic: [Int: String?] = [:] // 삭제
     var knum: Int = 0
     var titleF: String? = "ti"
     var contentF: String = "co"
     
     
-    init(/*row: Int, */titleForMemoView: String?, contentsForMemoView: String) {
-//        self.row = row
+    init(titleForMemoView: String?, contentsForMemoView: String) {
         self.titleForMemoView = titleForMemoView
         self.contentsForMemoView = contentsForMemoView
         super.init(nibName: nil, bundle: nil)
@@ -34,9 +29,7 @@ class MemoView: UIViewController, RowValue {
     }
     
     // MainVC 로부터 데이터를 전달받는 부분
-    func didRecieveData(/*data: Int, */titleForMemoView: String?, contentsForMemoView: String) {
-//        print("받은 로우 넘버: \(data)")
-//        numRow = data
+    func didRecieveData(titleForMemoView: String?, contentsForMemoView: String) {
         titleF = titleForMemoView
         contentF = contentsForMemoView
     }
