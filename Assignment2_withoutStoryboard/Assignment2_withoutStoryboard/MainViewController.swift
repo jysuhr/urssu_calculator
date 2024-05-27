@@ -9,10 +9,14 @@ import UIKit
 
 class MainViewController: UIViewController, MemoDataDelegate, UITableViewDelegate, UITableViewDataSource {
     
-    
     var memoDic: [String?: String] = [:]
+    var numDic: [Int: String?] = [:] // 삭제
+    var knum: Int = 0
     var memoTable = UITableView()
     let noMemoLabel = UILabel()
+    
+    // 로우 넘버 데이터 전달 프로토콜 채택
+    weak var delegate: RowValue?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,8 +70,11 @@ class MainViewController: UIViewController, MemoDataDelegate, UITableViewDelegat
     func memoDataUpdated(title: String?, content: String?) {
         guard let title = title, let content = content else { return }
         memoDic[title] = content
+        numDic[knum] = title
+        knum += 1
         
-        print("70.MemoDic 업데이트: \(memoDic)") // memoDic 출력
+        print("76.MemoDic 업데이트: \(memoDic)") // memoDic 확인
+        print("77.numDic: \(numDic)") // numDic 확인
         updateMemoList()
         // 테이블 뷰 업데이트
         self.memoTable.reloadData()
@@ -119,7 +126,13 @@ class MainViewController: UIViewController, MemoDataDelegate, UITableViewDelegat
         print("로우: \(indexPath.row)")
         
         // MemoView 뷰컨트롤러로 화면 전환
-        let memoViewVC = MemoView(row: indexPath.row)
+        let memoViewVC = MemoView(/*row: indexPath.row, */titleForMemoView: "\(numDic[indexPath.row]!)", contentsForMemoView: "\(memoDic[numDic[indexPath.row]!])")
+        
+        // 로우 넘버 데이터 타이틀과 내용 전달
+        memoViewVC.didRecieveData(/*data: indexPath.row, */titleForMemoView: "\(numDic[(numDic.count - 1) - indexPath.row]!!)", contentsForMemoView: memoDic["\(numDic[(numDic.count - 1) - indexPath.row]!!)"] ?? "noData")
+        
+        
+        
         navigationController?.pushViewController(memoViewVC, animated: true)
     }
     
