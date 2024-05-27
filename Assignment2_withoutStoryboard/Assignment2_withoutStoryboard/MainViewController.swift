@@ -14,6 +14,7 @@ class MainViewController: UIViewController, MemoDataDelegate, UITableViewDelegat
     var knum: Int = 0
     var memoTable = UITableView()
     let noMemoLabel = UILabel()
+    var memoOrder: [String] = [] // 메모 생성 순서를 저장
     
     // 로우 넘버 데이터 전달 프로토콜 채택
     weak var delegate: RowValue?
@@ -70,6 +71,7 @@ class MainViewController: UIViewController, MemoDataDelegate, UITableViewDelegat
     func memoDataUpdated(title: String?, content: String?) {
         guard let title = title, let content = content else { return }
         memoDic[title] = content
+        memoOrder.append(title)
         numDic[knum] = title
         knum += 1
         
@@ -112,11 +114,15 @@ class MainViewController: UIViewController, MemoDataDelegate, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
         
-        let key = Array(memoDic.keys)[indexPath.row]
-        let value = memoDic[key]
+//        let key = Array(memoDic.keys)[indexPath.row]
+        let key = memoOrder[memoOrder.count - (indexPath.row + 1)]
         
-        cell.textLabel?.text = key
-        cell.detailTextLabel?.text = value
+//        let value = memoDic[key]
+        if let value = memoDic[key] {
+            cell.textLabel?.text = key
+            cell.detailTextLabel?.text = value
+        }
+
         return cell
     }
     
