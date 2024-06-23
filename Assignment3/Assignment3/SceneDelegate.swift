@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  urssu_calculator
+//  Assignment v.23-2
 //
-//  Created by 서준영 on 4/30/24.
+//  Created by 서준영 on 6/23/24.
 //
 
 import UIKit
@@ -17,6 +17,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        // MARK: - noStoryBoard
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let viewController = ViewController() // 처음 보일 view controller
+        
+        window?.rootViewController = viewController // 위에서 만든 view controller를 첫 화면으로 띄우기
+        
+        window?.makeKeyAndVisible() // 화면이 보이게끔
+        window?.windowScene = windowScene
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -45,6 +57,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+
+        // Save changes in the application's managed object context when the application transitions to the background.
+        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
 
